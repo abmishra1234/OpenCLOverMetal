@@ -14,6 +14,33 @@
 # limitations under the License.
 ########################################################################################################################
 
-add_subdirectory(khronos)
-add_subdirectory(apple)
-add_subdirectory(clspv)
+cmake_minimum_required(VERSION 3.18)
+project(clspv CXX)
+
+add_library(clspv INTERFACE
+        include/clspv/AddressSpace.h
+        include/clspv/ArgKind.h
+        include/clspv/Compiler.h
+        include/clspv/Option.h
+        include/clspv/Passes.h
+        include/clspv/PushConstant.h
+        include/clspv/Sampler.h
+        include/clspv/SpecConstant.h
+)
+
+target_include_directories(clspv
+    INTERFACE
+        include
+)
+
+target_link_directories(clspv
+    INTERFACE
+        lib
+)
+
+target_link_libraries(clspv
+    INTERFACE
+        libcurses.a
+        libz.a
+        libclspv_core.a
+)

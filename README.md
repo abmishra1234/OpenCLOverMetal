@@ -25,6 +25,12 @@
 
 ## Build
 
+Download contents.
+
+```shell
+git lfs pull
+```
+
 Create a build directory and generate build script. 
 
 ```shell
